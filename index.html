@@ -15,7 +15,6 @@
     <title>RagingBolt</title>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <!-- Additional Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -164,102 +163,113 @@
         </div>
         
         <main class="min-h-screen flex justify-center align-center p-2 lg:hidden " style="background-color: #BCDDFF;">
-            <CTAcontainer class="my-10">
-                <h1 class="leading-loose font-bold p-3 text-center text-xl md:text-start custom-shadow">
+            <CTAcontainer class="my-10 md:my-20">
+                <h1 class="leading-loose font-bold p-3 text-center text-xl md:text-center md:w-[70%] md:m-auto custom-shadow">
                     EXPLORE TOP LEARNING PLATFORMS,
                     READ INSIGHTFUL REVIEWS,
                     AND TAKE THE NEXT STEP IN YOUR EDUCATION JOURNEY.
                 </h1>
                 <div class="p-2 flex text-center justify-center rounded-l">
-                    <a href="#" class="p-5 rounded-2xl" style="background-color: #03396C;">
+                    <a href="#" class="p-5 px-10 md:w-[40%] md:my-10 rounded-2xl bg-[#03396C] hover:bg-[#022d4d] transition duration-300 ease-in-out">
                         <h2 class="text-white">SIGN UP</h2>
                     </a>
-                </div>  
+                </div>
                 <div class="flex justify-center mt-20">
                     <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="w-[70%] max-w-[400px]" alt="">
                 </div>
                 <div class="my-20 relative">
-                    <img src="assets/img/image_2025-03-25_232222537.svg" alt="" class="relative z-10">
+                    <!-- Image 2025 -->
+                    <img id="image2025" src="assets/img/image_2025-03-25_232222537.svg" alt="" class="relative z-10">
+                    <!-- Frame Image -->
                     <img src="assets/img/Frame 1.svg" alt="" class="absolute bottom-0 left-0 w-full z-20 opacity-100">
+                    <!-- Ateneo Image -->
+                    <img id="ateneoImage" src="assets/img/ateneo.png" alt="" class="relative z-10 max-w-[80%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[1000px] mx-auto" style="display: none;">
                 </div>
+                
+                <!-- Buttons for navigation -->
+                <div class="hidden lg:flex justify-center py-10 pb-40" style="background-color: #BCDDFF;">
+                    <a href="javascript:void(0);" id="backButton" class="p-5 mx-6 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
+                        <h2 class="text-white text-sm">BACK</h2>
+                    </a>
+                    <a href="javascript:void(0);" id="nextButton" class="p-5 mx-5 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
+                        <h2 class="text-white text-sm">NEXT</h2>
+                    </a>
+                </div>
+                
+                <!-- MOBILE SCREEN BUTTONS FOR IMAGE CTA -->
                 <div class=" p-2 flex text-center justify-center rounded-l">
-                    <a href="#" class="p-5 mx-2 px-12 rounded-2xl" style="background-color: #03396C;">
+                    <a href="#" class="p-5 mx-2 px-12 rounded-2xl hover:bg-[#022d4d]" style="background-color: #03396C;">
                         <h2 class="text-white">BACK</h2>
                     </a>
-                    <a href="#" class="p-5 mx-2 px-12 rounded-2xl" style="background-color: #03396C;">
+                    <a href="#" onclick="changeImage()" class="p-5 mx-2 px-12 rounded-2xl hover:bg-[#022d4d]" style="background-color: #03396C;" id="landingPageIMGcta">
                         <h2 class="text-white">NEXT</h2>
+
+                        
                     </a>
                 </div>  
             </CTAcontainer>
         </main>
        
         <main class="min-h-screen flex justify-center items-center pl-10 lg:block hidden xl:p-20 xl:flex-col xl:items-center" style="background-color: #BCDDFF;">
-            <CTAcontainer class="flex p-1 items-center justify-center w-full lg:p-30 max-w-full">
+            <CTAcontainer class="flex p-1 items-center justify-center w-full lg:p-30 max-w-full lg:min-h-screen ">
                 <!-- Left side: Text and Button -->
-                <div class="flex     lg:w-1/2 xl:w-4/5 ">
+                <div class="flex lg:w-1/2 xl:w-4/5 ">
                     <div class="xl:flex">
-                        <h1 class="leading-loose p-3 text-center text-xl xl:p-0 w-30 md:text-start xl:p-20 custom-shadow">
-                            EXPLORE TOP LEARNING PLATFORMS,
-                            READ INSIGHTFUL REVIEWS,
-                            AND TAKE THE NEXT STEP IN YOUR EDUCATION JOURNEY.
+                        <h1 class="p-3 text-center text-xl xl:p-0 w-30 md:text-start xl:p-20 custom-shadow 2xl:text-2xl">
+                            <p class="leading-[3rem]">EXPLORE TOP LEARNING PLATFORMS,</p>
+                            <p class="leading-[3rem]">READ INSIGHTFUL REVIEWS,</p>
+                            <p class="leading-[3rem]">AND TAKE THE NEXT STEP IN YOUR EDUCATION JOURNEY.</p>
                            
                             <div class="flex my-9 rounded-l lg:hidden xl:block xl:max-w-[30rem]">
-                                <!-- Make the button max-width half of the parent div -->
-                                <a href="#" class="p-4 rounded-2xl xl:block max-w-[50%]" style="background-color: #03396C;">
+                                <a href="#" class="p-4 hover:bg-[#022d4d] rounded-2xl xl:block max-w-[50%] bg-[#03396C]">
                                     <h2 class="text-white text-sm xl:text-center xl:p-1 xl:text-sm">SIGN UP</h2>
                                 </a>
                             </div>
+                            
                         </h1>
                        
                         <div class="p-2 flex text-center xl:justify-center rounded-l ">
-                            <a href="#" class="p-5 rounded-2xl xl:hidden" style="background-color: #03396C;">
-                                <h2 class="text-white text-sm">GET STARTED</h2>
+                            <a href="#" class="p-5 px-[60px] rounded-2xl xl:hidden hover:bg-[#022d4d]" style="background-color: #03396C;">
+                                <h2 class="text-white text-sm">SIGN UP</h2>
                             </a>
                         </div>
                     </div>
-                    <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="hidden xl:block" alt="">
+                    <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="hidden xl:block " alt="">
                 </div>
        
-                <!-- Image on the right -->
-                <div class="flex justify-center lg:w-1/2 p-4 xl:hidden">
-                    <!-- Make the image smaller -->
-                    <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="w-[60%] max-w-[350px]" alt="">
-                </div>
+                    <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="w-[60%] max-w-[350px] xl:hidden" alt="">
             </CTAcontainer>
         </main>
        
                
                 <!--PC-->
                 <div class="lg:flex lg:justify-center lg:items-center" style="background-color: #BCDDFF;">
-                    <!-- First Image Block -->
                     <div class="my-20 relative lg:block hidden  flex justify-center">
-                        <!-- First Image -->
                         <img src="assets/img/image_2025-03-25_232222537.svg" alt="" class="relative z-10 max-w-[80%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[1000px] mx-auto">
-                        <!-- Second Image (Overlay) -->
                         <img src="assets/img/Frame 1.svg" alt="" class="absolute bottom-0 left-0 w-full z-20 opacity-100 max-w-[80%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[1000px] mx-auto">
                     </div>
                 </div>
-               
-                <!-- Buttons -->
+                
                 <div class="hidden lg:flex justify-center py-10 pb-40" style="background-color: #BCDDFF;">
-                    <a href="#" class="p-5 mx-6 px-20 rounded-2xl" style="background-color: #03396C;">
+                    <a href="#" class="p-5 mx-6 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white text-sm">BACK</h2>
                     </a>
-                    <a href="#" class="p-5 mx-5 px-20 rounded-2xl" style="background-color: #03396C;">
+                    <a href="#" class="p-5 mx-5 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white text-sm">NEXT</h2>
                     </a>
                 </div>
-               
-               
+                
                 <!-- Make buttons wider by adjusting padding -->
-                <div class="p-2 flex text-center justify-center rounded-l  hidden">
-                    <a href="#" class="p-5 mx-4 px-20 rounded-2xl" style="background-color: #03396C;">
+                <div class="p-2 flex text-center justify-center rounded-l hidden">
+                    <a href="#" class="p-5 mx-4 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white">BACK</h2>
                     </a>
-                    <a href="#" class="p-5 mx-4 px-20 rounded-2xl" style="background-color: #03396C;">
+                    <a href="#" class="p-5 mx-4 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white">NEXT</h2>
                     </a>
                 </div>
+                
+                
                
                 </CTAcontainer>
                 </main>
