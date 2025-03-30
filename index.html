@@ -14,7 +14,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <title>RagingBolt</title>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+    <script src="assets/js/script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -83,8 +83,8 @@
                     <ul class="flex lg:flex-row flex-col md:items-center lg:gap-[4vw] gap-8" id="navCTA";">
                         <li><a href="pagesindex.html"        class="no-underline rounded-xl m-7 p-3 m hover:bg-gray-300 transition-colors">HOME</a></li>
                         <li><a href="pages\aboutUs\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">ABOUT</a></li>
-                        <li><a href="pages\page2\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SCHOOLS</a></li>
-                        <li><a href="pages\page4\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SUBMIT</a></li>
+                        <li><a href="pages\submitPage\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SCHOOLS</a></li>
+                        <li><a href="pages/submitPage/index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SUBMIT</a></li>
                         <li><a href="pages\contactPage\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">CONTACT</a></li>
                     </ul>
                 </div>
@@ -95,19 +95,16 @@
 
          
         </header>
-    
         <script>
             const navLinks = document.querySelector('.nav-links');
     
             function onToggleMenu(e) {
-                // Toggle the menu icon between 'menu-sharp' and 'close' when clicked
                 if (e.name === 'menu-sharp') {
                     e.name = 'close';
                 } else {
                     e.name = 'menu-sharp';
                 }
     
-                // Toggle the navigation menu visibility
                 navLinks.classList.toggle('top-0');
                 navLinks.classList.toggle('top-[-100%]');
             }
@@ -134,9 +131,9 @@
         <ul class="flex ">
             <li><a href="#"                        class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">HOME</a></li>
             <li><a href="pages\aboutUs\index.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">ABOUT</a></li>
-            <li><a href="pages/page2/schools.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SCHOOLS</a></li>
-            <li><a href="pages/page3/contact.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SUBMIT</a></li>
-            <li><a href="pages/page4/contact.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">CONTACT</a></li>
+            <li><a href="pages\submitPage\index.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SCHOOLS</a></li>
+            <li><a href="pages/submitPage/index.html" " class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SUBMIT</a></li>
+            <li><a href="pages\contactPage\index.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">CONTACT</a></li>
         </ul>
     </div>
     
