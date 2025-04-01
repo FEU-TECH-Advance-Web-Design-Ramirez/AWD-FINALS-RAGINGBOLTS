@@ -4,16 +4,16 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
+  <a href="https://github.com/kalvxn/">
   <!-- TODO: If you want to add logo or banner you can add it here -->
     <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
   </a>
 <!-- TODO: Change Title to the name of the title of your Project -->
-  <h3 align="center">Title</h3>
+  <h3 align="center">AWD-FINALS-RAGINGBOLTS</h3>
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. (Optional)
+Education Seeker is a mobile app for adults who want to keep learning in a flexible and easy way. It offers short courses, skill-based lessons, and interactive webinars. Users can share and review learning platforms, rate their experiences, and see ranked recommendations. An admin checks platform and review submissions to keep the content reliable. The goal is to make learning simple, accessible, and useful for everyone.
 </div>
 
 <br />
@@ -62,17 +62,24 @@
 Description of the project in details.
 
 Guiding Question:
-- What is the project
-- Whats the purpose
-- What are key components
+- Education Seeker is a mobile learning platform designed for adults who want to continue learning through short courses, skill-based tutorials, and interactive webinars.
+- The app aims to make learning accessible, flexible, and engaging for professionals, adult learners, and hobbyists. It allows users to find, review, and rate different learning platforms, helping others make informed choices.
+-
+Learning Platform Listings – Users can submit and browse platforms that offer learning opportunities.
+
+Reviews & Ratings – Users can submit personal reviews and rate platforms based on their experiences.
+
+Ranking System – Platforms are ranked based on user reviews and ratings.
+
+Admin Confirmation – An admin verifies submitted platforms and reviews to ensure quality and reliability.
+
 - What technology used and how it is used
 
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
-- MultiPage Website/Single Page Website
+- MultiPage Website
 - Parallax transition
-- Transactional
 
 ### Technology
 <!-- TODO: List of Technology Used -->
@@ -92,7 +99,7 @@ Guiding Question:
 7. File Structure to follow below.
 
 ```
-WD-ProjectName
+AWD-FINALS-RAGINGBOLTS
 └─ assets
 |   └─ css
 |   |   └─ style.css
