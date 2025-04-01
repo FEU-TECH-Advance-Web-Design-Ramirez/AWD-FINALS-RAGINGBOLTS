@@ -11,18 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src=".\pages\schoolPage\assets\js\script.js\"></script>
+    <script src=".\pages\schoolPage\assets\js\script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <title>RagingBolt - Schools</title>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets\css\style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body class="" style="font-family: Inknut Antiqua;">
+<body class="Inknut">
     <header class="" >
-       <socmedContainer class="flex justify-center items-center p-3.5 lg:hidden" style="background-color: #1877F2;">
+       <socmedContainer class="flex justify-center items-center lightblue p-3.5 lg:hidden">
             <socmedLogo class="flex space-x-6 lg:space-x-12">
                 <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fragingboltsz%2F&h=AT00bX0GxHL5zRUn4eBrRZTTWVeFmmzsArjcRzdfDntFkvIaAQjh8OQRx9ynj6ILR-u0v64WPjb1xR5v8O3bZFUs8MyPoIZ2Z3uE8I44fHCc0dW7oM8UZyygWsAYbUt8wstxESaDXbq3qvFrJvk" target="_blank">
                     <img src="assets/img/instagram 3.svg" alt="" class="" id="instagram">
@@ -41,7 +42,7 @@
 
         <upperBarnav class="flex items-center p-4 lg:p-0 justify-between">
             
-            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5" style="background-color: #1877F2;">
+            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5 lightblue">
                 <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fragingboltsz%2F&h=AT00bX0GxHL5zRUn4eBrRZTTWVeFmmzsArjcRzdfDntFkvIaAQjh8OQRx9ynj6ILR-u0v64WPjb1xR5v8O3bZFUs8MyPoIZ2Z3uE8I44fHCc0dW7oM8UZyygWsAYbUt8wstxESaDXbq3qvFrJvk" target="_blank">
                     <img src="assets/img/instagram 3.svg" alt="" class="" id="instagram">
                 </a>
@@ -105,21 +106,17 @@
 
             
         </div>
-       <!-- Lower Nav for smaller screens -->
 <lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9]">
     <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
     <img src="assets/img/RAGINGBOLT.svg" alt="">
 </lowerNav>
 
-<!-- Main Navigation -->
-<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full " style="background-color: #F8F8F8;">
-    <!-- First div containing images (Ranking logo and RagingBolt logo) with D9D9D9 background -->
+<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full" id="lightGrey">
     <div class="flex items-center bg-[#D9D9D9] p-3 pr-7">
         <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
         <img src="assets/img/RAGINGBOLT.svg" alt="">
     </div>
     
-    <!-- Second div containing the unordered list -->
     <div class="ml-4">
         <ul class="flex ">
             <li><a href="#"                        class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">HOME</a></li>
@@ -131,39 +128,33 @@
     </div>
     
     
-    <!-- Third div containing the search form aligned to the right -->
     <div class="ml-auto">
         <form action="#" method="get" class="p-4 justify-end flex border-[#D9D9D9] " id="searchBar">
-            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
+            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l  darkgrey placeholder-black" id="placeholder">
             <button type="submit" class="cursor-pointer w-8 rounded-l">
-                <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
+                <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l darkgrey">
             </button>
         </form>
     </div>
 </div>
 
-  
-        
-        
-
-
         <div>
             <form action="#" method="get" class="p-4 justify-end  flex border-[#D9D9D9] shadow: lg:hidden" id="searchBar" style="">
-                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
+                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black darkgrey" id="placeholder">
                 <button type="submit" class="cursor-pointer w-8 rounded-l">
-                    <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
+                    <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l darkgrey">
                 </button>
             </form>
         </div>
         
-        <div class="flex justify-center text-center p-5 " style="background-color: #03396C; font-family: Inknut Antiquw;">
-            <h1 class="text-white text-xl ">TOP RANKING UNIVERSITY IN THE PHILIPPINES</h1>
+        <div class="Inknut flex justify-center text-center p-5 darkblue">
+            <h1 class="text-white  text-xl">TOP RANKING UNIVERSITY IN THE PHILIPPINES</h1>
         </div>
               
       
       
-        <main class="min-h-screen p-2 " style="background-color: #F8F8F8;">
-            <mainContent class="" style="background-color: #F8F8F8;">
+        <main class="min-h-screen p-2 lightGrey">
+            <mainContent class="lightGrey">
                 <container class="">
                     <div class="flex justify-between ">
                         <div class="flex justify-between align-center">
@@ -257,12 +248,7 @@
         <h2 class="text-[80%]">#904 in Asia</h2>
         <h2 class="text-[80%]">#6 in Philippines</h2>
     </div>
-</div>
-
-                    
-
                 </schoolBoxesContainer>
-
                 <div class="flex justify-end align-center">
                     
                     <div class="flex justify-center w-[50%]">
@@ -271,9 +257,7 @@
                 </div>
             </mainContent>
         </main>
-                
-
-        <footer class="flex justify-center p-5" style="background-color: #D9D9D9;">
+        <footer class="flex justify-center p-5 darkgrey">
             <h3 class="text-gray-600 text-xs">
                 Copyright © 2025, All Rights Reserved
             </h3>
