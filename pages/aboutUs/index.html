@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/pages/aboutUs/assets/css/style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <title>RagingBolt</title>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -19,9 +20,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body class="" style="font-family: Inknut Antiqua;">
+<body class="Inknut">
     <header class="" >
-       <socmedContainer class="flex justify-center items-center p-3.5 lg:hidden" style="background-color: #1877F2;">
+       <socmedContainer class="flex justify-center items-center p-3.5 blue lg:hidden">
             <socmedLogo class="flex space-x-6 lg:space-x-12">
                 <a href="https://www.instagram.com/ragingboltsz/?fbclid=IwZXh0bgNhZW0CMTEAAR0LkZafdf6xwhAUjk8dX6t4PnkdA9SnnDVFybZFnF8UdUCTWjIqOg5q-VY_aem_pK1T6md4iD15dXcF0T2zYw" target="_blank">
                     <img src="assets/img/instagram 2.svg" alt="" class="" id="instagram">
@@ -40,7 +41,7 @@
 
         <upperBarnav class="flex items-center p-4 lg:p-0 justify-between">
             
-            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5" style="background-color: #1877F2;">
+            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5 blue">
                 <a href="https://www.instagram.com/ragingboltsz/?fbclid=IwZXh0bgNhZW0CMTEAAR0LkZafdf6xwhAUjk8dX6t4PnkdA9SnnDVFybZFnF8UdUCTWjIqOg5q-VY_aem_pK1T6md4iD15dXcF0T2zYw" target="_blank">
                     <img src="assets/img/instagram 2.svg" alt="" class="" id="instagram">
                 </a>
@@ -108,21 +109,17 @@
 
             
         </div>
-       <!-- Lower Nav for smaller screens -->
-<lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9]">
+<lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9] ">
     <img src="assets/img/ranking 2.svg" alt="" class="mr-4">
     <img src="assets/img/RAGINGBOLT.svg" alt="">
 </lowerNav>
 
-<!-- Main Navigation -->
-<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full " style="background-color: #F8F8F8;">
-    <!-- First div containing images (Ranking logo and RagingBolt logo) with D9D9D9 background -->
+<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full grey">
     <div class="flex items-center bg-[#D9D9D9] p-3 pr-7">
         <img src="assets/img/ranking 2.svg" alt="" class="mr-4">
         <img src="assets/img/RAGINGBOLT.svg" alt="">
     </div>
     
-    <!-- Second div containing the unordered list -->
     <div class="ml-4">
         <ul class="flex ">
             <li><a href="\index.html"                        class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">HOME</a></li>
@@ -132,14 +129,13 @@
             <li><a href="\pages\contactPage\index.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">CONTACT</a></li>
         </ul>
     </div>
+
     
-    
-    <!-- Third div containing the search form aligned to the right -->
     <div class="ml-auto">
         <form action="#" method="get" class="p-4 justify-end flex border-[#D9D9D9] " id="searchBar">
-            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
+            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black  darkGrey" id="placeholder">
             <button type="submit" class="cursor-pointer w-8 rounded-l">
-                <img src="assets/img/loupe 2.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
+                <img src="assets/img/loupe 2.svg" alt="Search Icon" class="rounded-l darkGrey">
             </button>
         </form>
     </div>
@@ -151,22 +147,22 @@
 
 
         <div>
-            <form action="#" method="get" class="p-4 justify-end  flex border-[#D9D9D9] shadow: lg:hidden" id="searchBar" style="">
-                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
+            <form action="#" method="get" class="p-4 justify-end  flex border-[#D9D9D9] shadow: lg:hidden" id="searchBar">
+                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black darkGrey" id="placeholder">
                 <button type="submit" class="cursor-pointer w-8 rounded-l">
-                    <img src="assets/img/loupe 2.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
+                    <img src="assets/img/loupe 2.svg" alt="Search Icon" class="rounded-l darkGrey">
                 </button>
             </form>
         </div>
         
-        <div class="flex justify-center text-center p-5 2xl:p-8" style="background-color: #03396C; font-family: Inknut Antiquw;">
+        <div class="flex justify-center text-center p-5 2xl:p-8 Inknut darkblue">
             <h1 class="text-white text-xl 2xl:text-2xl ">ABOUT US</h1>
         </div>
               
       
       
-        <main class="min-h-screen flex justify-center align-center p-2 " style="background-color: #F8F8F8;">
-            <mainContent class="p-4 lg:max-w-[80%] xl:max-w-[60%] " style="background-color: #F8F8F8;">
+        <main class="min-h-screen flex justify-center align-center p-2 grey">
+            <mainContent class="p-4 lg:max-w-[80%] xl:max-w-[60%] grey">
                 <container class="p-5 ">
                     <h2 class="font-bold text-center p-8 lg:text-start  lg:p-10 2xl:text-xl ">Our Mission</h2>
                         <p class="text-center lg:text-start sm:px-10 md:px-20 lg:p-10 lg:py-0 2xl:pr-40 2xl:text-xl">
@@ -189,7 +185,7 @@
         </main>
                 
 
-        <footer class="flex justify-center p-5" style="background-color: #D9D9D9;">
+        <footer class="flex justify-center p-5 darkGrey">
             <h3 class="text-gray-600 text-xs">
                 Copyright © 2025, All Rights Reserved
             </h3>
