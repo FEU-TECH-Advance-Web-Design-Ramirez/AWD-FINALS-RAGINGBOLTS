@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,16 +18,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 
-<body class="" style="font-family: Inknut Antiqua;">
+<body class="Inknut">
 
-   <!--  -->
-    <header class="" >
-       <socmedContainer class="flex justify-center items-center p-3.5 lg:hidden" style="background-color: #1877F2;">
+    <header>
+       <socmedContainer class="flex justify-center items-center p-3.5 lg:hidden lightblue">
             <socmedLogo class="flex space-x-6 lg:space-x-12">
                 <a href="https://www.instagram.com/ragingboltsz/?fbclid=IwZXh0bgNhZW0CMTEAAR0LkZafdf6xwhAUjk8dX6t4PnkdA9SnnDVFybZFnF8UdUCTWjIqOg5q-VY_aem_pK1T6md4iD15dXcF0T2zYw" target="_blank">
                     <img src="pages/contactPage/assets/img/instagram 4.svg" alt="" class="" id="instagram">
@@ -47,7 +44,7 @@
 
         <upperBarnav class="flex items-center p-4 lg:p-0 justify-between">
             
-            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5" style="background-color: #1877F2;">
+            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5 lightblue">
                 <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fragingboltsz%2F&h=AT00bX0GxHL5zRUn4eBrRZTTWVeFmmzsArjcRzdfDntFkvIaAQjh8OQRx9ynj6ILR-u0v64WPjb1xR5v8O3bZFUs8MyPoIZ2Z3uE8I44fHCc0dW7oM8UZyygWsAYbUt8wstxESaDXbq3qvFrJvk" target="_blank">
                     <img src="assets/img/instagram 1.svg" alt="" class="" id="instagram">
                 </a>
@@ -70,11 +67,6 @@
                 <a href="">
                     <h3 class="hover:bg-gray-300 transition-colors">Login</h3>
                 </a>  
-                <a href=""> 
-                    <img src="assets/img/login 1.svg" alt="">
-                </a> <a href="">
-                    <h3 class="hover:bg-gray-300 transition-colors">Register</h3>
-                </a>
             </adminCustomerCTA>
 
 
@@ -88,9 +80,7 @@
                         <li><a href="pages\contactPage\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">CONTACT</a></li>
                     </ul>
                 </div>
-                <div class="flex items-center gap-6">
-                    <ion-icon onclick="onToggleMenu(this)" name="menu-sharp" class="text-3xl cursor-pointer lg:hidden"></ion-icon>
-                </div>
+               
             </nav>
 
          
@@ -113,15 +103,12 @@
 
             
         </div>
-       <!-- Lower Nav for smaller screens -->
 <lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9]">
     <img src="assets/img/ranking 1.svg" alt="" class="mr-4">
     <img src="assets/img/RAGINGBOLT.svg" alt="">
 </lowerNav>
 
-<!-- Main Navigation -->
-<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full " style="background-color: #F8F8F8;">
-    <!-- First div containing images (Ranking logo and RagingBolt logo) with D9D9D9 background -->
+<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full lightgrey">
     <div class="flex items-center bg-[#D9D9D9] p-3 pr-7">
         <img src="assets/img/ranking 1.svg" alt="" class="mr-4">
         <img src="assets/img/RAGINGBOLT.svg" alt="">
@@ -138,12 +125,11 @@
     </div>
     
     
-    <!-- Third div containing the search form aligned to the right -->
     <div class="ml-auto">
-        <form action="#" method="get" class="p-4 justify-end flex border-[#D9D9D9] " id="searchBar">
-            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
+        <form action="#" method="get" class="p-4 justify-end flex border-[#D9D9D9] darkgrey" id="searchBar">
+            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black lightgrey" id="placeholder">
             <button type="submit" class="cursor-pointer w-8 rounded-l">
-                <img src="assets/img/loupe 1.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
+                <img src="assets/img/loupe 1.svg" alt="Search Icon" class="rounded-l darkgrey">
             </button>
         </form>
     </div>
@@ -151,15 +137,15 @@
         
 
         <div>
-            <form action="#" method="get" class="p-4 justify-end  flex border-[#D9D9D9] shadow: lg:hidden" id="searchBar" style="">
-                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
+            <form action="#" method="get" class="p-4 justify-end  flex border-[#D9D9D9] shadow: lg:hidden" id="searchBar">
+                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black darkgrey" id="placeholder">
                 <button type="submit" class="cursor-pointer w-8 rounded-l">
-                    <img src="assets/img/loupe 1.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
+                    <img src="assets/img/loupe 1.svg" alt="Search Icon" class="rounded-l darkgrey">
                 </button>
             </form>
         </div>
         
-        <main class="min-h-screen flex justify-center align-center p-2 lg:hidden " style="background-color: #BCDDFF;">
+        <main class="min-h-screen flex justify-center align-center p-2 lg:hidden skyblue">
             <CTAcontainer class="my-10 md:my-20">
                 <h1 class="leading-loose font-bold p-3 text-center text-xl md:text-center md:w-[70%] md:m-auto custom-shadow">
                     EXPLORE TOP LEARNING PLATFORMS,
@@ -175,16 +161,10 @@
                     <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="w-[70%] max-w-[400px]" alt="">
                 </div>
                 <div class="my-20 relative">
-                    <!-- Image 2025 -->
                     <img id="image2025" src="assets/img/image_2025-03-25_232222537.svg" alt="" class="relative z-10">
-                    <!-- Frame Image -->
-                    <img src="assets/img/Frame 1.svg" alt="" class="absolute bottom-0 left-0 w-full z-20 opacity-100">
-                    <!-- Ateneo Image -->
-                    <img id="ateneoImage" src="assets/img/ateneo.png" alt="" class="relative z-10 max-w-[80%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[1000px] mx-auto" style="display: none;">
-                </div>
+                  
                 
-                <!-- Buttons for navigation -->
-                <div class="hidden lg:flex justify-center py-10 pb-40" style="background-color: #BCDDFF;">
+                <div class="hidden lg:flex justify-center py-10 pb-40 skyblue">
                     <a href="javascript:void(0);" id="backButton" class="p-5 mx-6 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white text-sm">BACK</h2>
                     </a>
@@ -195,10 +175,10 @@
                 
                 <!-- MOBILE SCREEN BUTTONS FOR IMAGE CTA -->
                 <div class=" p-2 flex text-center justify-center rounded-l">
-                    <a href="#" class="p-5 mx-2 px-12 rounded-2xl hover:bg-[#022d4d]" style="background-color: #03396C;">
+                    <a href="#" class="p-5 mx-2 px-12 rounded-2xl hover:bg-[#022d4d] darkblue">
                         <h2 class="text-white">BACK</h2>
                     </a>
-                    <a href="#" onclick="changeImage()" class="p-5 mx-2 px-12 rounded-2xl hover:bg-[#022d4d]" style="background-color: #03396C;" id="landingPageIMGcta">
+                    <a href="#" onclick="changeImage()" class="p-5 mx-2 px-12 rounded-2xl hover:bg-[#022d4d] darkblue" id="landingPageIMGcta">
                         <h2 class="text-white">NEXT</h2>
 
                         
@@ -207,7 +187,7 @@
             </CTAcontainer>
         </main>
        
-        <main class="min-h-screen flex justify-center items-center pl-10 lg:block hidden xl:p-20 xl:flex-col xl:items-center" style="background-color: #BCDDFF;">
+        <main class="min-h-screen flex justify-center items-center pl-10 lg:block hidden xl:p-20 xl:flex-col xl:items-center skyblue skyblue">
             <CTAcontainer class="flex p-1 items-center justify-center w-full lg:p-30 max-w-full lg:min-h-screen ">
                 <!-- Left side: Text and Button -->
                 <div class="flex lg:w-1/2 xl:w-4/5 ">
@@ -226,7 +206,7 @@
                         </h1>
                        
                         <div class="p-2 flex text-center xl:justify-center rounded-l ">
-                            <a href="pages\signupPage\index.html" class="p-5 px-[60px] rounded-2xl xl:hidden hover:bg-[#022d4d]" style="background-color: #03396C;">
+                            <a href="pages\signupPage\index.html" class="p-5 px-[60px] rounded-2xl xl:hidden hover:bg-[#022d4d] darkblue">
                                 <h2 class="text-white text-sm">SIGN UP</h2>
                             </a>
                         </div>
@@ -237,17 +217,14 @@
                     <img src="assets/img/image-from-rawpixel-id-14164667-png 1.svg" class="w-[60%] max-w-[350px] xl:hidden" alt="">
             </CTAcontainer>
         </main>
-       
-               
-                <!--PC-->
-                <div class="lg:flex lg:justify-center lg:items-center" style="background-color: #BCDDFF;">
+                <div class="lg:flex lg:justify-center lg:items-center skyblue">
                     <div class="my-20 relative lg:block hidden  flex justify-center">
                         <img src="assets/img/image_2025-03-25_232222537.svg" alt="" class="relative z-10 max-w-[80%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[1000px] mx-auto">
                         <img src="assets/img/Frame 1.svg" alt="" class="absolute bottom-0 left-0 w-full z-20 opacity-100 max-w-[80%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[1000px] mx-auto">
                     </div>
                 </div>
                 
-                <div class="hidden lg:flex justify-center py-10 pb-40" style="background-color: #BCDDFF;">
+                <div class="hidden lg:flex justify-center py-10 pb-40 skyblue">
                     <a href="#" class="p-5 mx-6 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white text-sm">BACK</h2>
                     </a>
@@ -256,7 +233,6 @@
                     </a>
                 </div>
                 
-                <!-- Make buttons wider by adjusting padding -->
                 <div class="p-2 flex text-center justify-center rounded-l hidden">
                     <a href="#" class="p-5 mx-4 px-20 rounded-2xl bg-[#03396C] hover:bg-[#022d4d]">
                         <h2 class="text-white">BACK</h2>
@@ -273,7 +249,7 @@
                
 
 
-        <footer class="flex justify-center p-5" style="background-color: #D9D9D9;">
+        <footer class="flex justify-center p-5 darkgrey">
             <h3 class="text-gray-600 text-xs">
                 Copyright © 2025, All Rights Reserved
             </h3>
