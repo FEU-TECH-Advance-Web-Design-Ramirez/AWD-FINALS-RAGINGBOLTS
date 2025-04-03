@@ -1,4 +1,4 @@
-const navLinks = document.querySelector('.nav-links');
+const navLinks = document.querySelector('.menuToggle');
     
 function onToggleMenu(e) {
     if (e.name === 'menu-sharp') {
