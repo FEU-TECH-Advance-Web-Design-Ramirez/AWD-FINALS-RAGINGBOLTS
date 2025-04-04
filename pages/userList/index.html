@@ -177,17 +177,63 @@
         </tr>
         </thead>
         <tbody id="userList">
-        <!-- User data will be inserted here -->
         </tbody>
     </table>
     </div>
 
 <script>
   async function fetchUsers() {
-    const API_URL = "https://api.jsonbin.io/v3/b/67ef59a08561e97a50f865ae"; // Your bin URL
-    const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; // Your JSONBin Master Key
+    const API_URL = "https://api.jsonbin.io/v3/b/67ef59a08561e97a50f865ae"; 
+    const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; 
 
-    
+    try {
+      const response = await axios.get(API_URL, {
+        headers: { "X-Master-Key": MASTER_KEY }
+      });
+
+      let users = response.data.record.record || []; 
+
+      if (users.length === 0) {
+        document.getElementById('userList').innerHTML = '<tr><td colspan="2" class="text-center">No users found</td></tr>';
+        return;
+      }
+
+      document.getElementById('userList').innerHTML = '';
+
+      users.forEach(user => {
+        const createdDate = new Date(user.createdAt);
+        const formattedDate = `${createdDate.getDate() < 10 ? '0' + createdDate.getDate() : createdDate.getDate()}/${createdDate.getMonth() + 1 < 10 ? '0' + (createdDate.getMonth() + 1) : createdDate.getMonth() + 1}/${createdDate.getFullYear()}`;
+
+        const userRow = document.createElement('tr');
+
+        userRow.innerHTML = `
+          <td>${user.email}</td>
+          <td>${formattedDate}</td>
+        `;
+
+        document.getElementById('userList').appendChild(userRow);
+      });
+
+      $('#userTable').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true,
+        order: [[1, 'desc']], 
+        pageLength: 5, 
+      });
+      
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Failed to load user data!',
+      });
+    }
+  }
+
+  // Call fetchUsers when the page loads
+  window.onload = fetchUsers;
 </script>
   
 </main>
