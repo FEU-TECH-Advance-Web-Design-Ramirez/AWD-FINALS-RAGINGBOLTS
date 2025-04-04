@@ -309,18 +309,7 @@
         tbody.insertAdjacentHTML("beforeend", buildRow(entry));
       });
     })
-    .catch(err => console.error("Error fetching education data", err));
-
-    axios.get(reviewURL, {
-      headers: { "X-Master-Key": MASTER_KEY }
-    })
-    .then(res => {
-      const records = Array.isArray(res.data.record) ? res.data.record : [];
-      records.forEach(entry => {
-        tbody.insertAdjacentHTML("beforeend", buildRow(entry));
-      });
-    })
-    .catch(err => console.error("Error fetching review data", err));
+    
   }
 
   populateTable();
