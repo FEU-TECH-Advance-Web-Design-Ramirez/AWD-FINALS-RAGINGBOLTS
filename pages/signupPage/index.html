@@ -23,6 +23,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweetalert2.min.css">
+    <script src="/pages/contactPage/assets/js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweet-alert-2.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.9.3/sha3.min.js"></script>
 </head>
 
 <body class="Inknut">
@@ -154,7 +159,7 @@
           <div>
             <h1 class="text-center text-xl font-bold">SIGN UP NOW!</h1>
           </div>
-          <form id="userForm" method="POST" class="pt-[40px]">
+          <form id="registerForm" method="POST" class="pt-[40px]">
             <div class="mb-4">
               <input type="text" id="name" class="form-control w-full p-2 rounded-lg placeholder-gray-500 border border-gray-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Username" required>
             </div>
@@ -168,7 +173,7 @@
             </div>
     
             <div class="flex justify-center align-center pt-[10px]">
-              <button type="submit" class="p-4 px-9 font-semibold text-md rounded-2xl text-white bg-[#03396C] lg:px-[80px] lg:font-bold">
+              <button type="submit" id="Register" class="p-4 px-9 font-semibold text-md rounded-2xl text-white bg-[#03396C] lg:px-[80px] lg:font-bold">
                 Submit
               </button>
             </div>
@@ -180,44 +185,64 @@
           <div id="usersList" class="mt-4"></div>
         </div>
       </div>
-    
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-      <script>
-        document.getElementById('userForm').addEventListener('submit', function (event) {
-          event.preventDefault();
-    
-          const username = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const password = document.getElementById('password').value;
-    
-          axios.post('http://localhost:3000/api/users', { username, email, password })
-            .then(response => {
-              alert('User registered successfully!');
-              document.getElementById('userForm').reset();
-            })
-            .catch(error => {
-              document.getElementById('output').textContent = error.response.data.error || 'Error occurred while registering user';
-              console.error('Error:', error);
-            });
-        });
-    
-        document.getElementById('fetchUsersBtn').addEventListener('click', function () {
-          axios.get('http://localhost:3000/api/users')
-            .then(response => {
-              const users = response.data;
-              let outputHTML = "<ul>";
-              users.forEach(user => {
-                outputHTML += `<li><strong>${user.username}</strong> - ${user.email} (Password: ${user.password})</li>`;
-              });
-              outputHTML += "</ul>";
-              document.getElementById('usersList').innerHTML = outputHTML;
-            })
-            .catch(error => {
-              document.getElementById('output').textContent = 'Error fetching users';
-              console.error('Error:', error);
-            });
-        });
-      </script>
+      
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); 
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      const hashedPassword = sha3_256(password); 
+
+      const userData = {
+        id: Date.now().toString(), 
+        email: email,
+        name: name,
+        password: hashedPassword, 
+        createdAt: new Date().toISOString()
+      };
+
+      const API_URL = "https://api.jsonbin.io/v3/b/67ef59a08561e97a50f865ae"; 
+      const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; 
+
+      const response = await axios.get(API_URL, {
+        headers: { "X-Master-Key": MASTER_KEY }
+      });
+
+      let users = response.data.record.record || []; 
+
+      users.push(userData);
+
+      await axios.put(API_URL, { record: users }, {
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY
+        }
+      });
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'User Registered Successfully!',
+      }).then(() => {
+        window.location.href = '../loginPage/index.html'; 
+      });
+      
+      document.getElementById('registerForm').reset();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to Register!',
+        text: 'Sorry unable to Register, Please try again later!',
+      });
+      console.error("Error details:", error.response ? error.response.data : error.message);
+    }
+  });
+</script>
+      
     </body>
     </html>
 </main>
