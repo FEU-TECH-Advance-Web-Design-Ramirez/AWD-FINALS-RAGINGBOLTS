@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="/pages/submitPage/assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweetalert2.min.css">
+    <script src="/pages/contactPage/assets/js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweet-alert-2.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.9.3/sha3.min.js"></script>
 </head>
 
 <body class="Inknut text-xl">
@@ -161,34 +166,33 @@
     <div class="flex justify-center xl:m-20 ">
         <div class="w-full max-w-lg lg:max-w-3xl bg-white p-6 text-sm rounded-lg shadow-md xl:max-w-2x3 ">
 
-            <form action="#" method="POST">
+            <form id="submissionForm" method="POST">
                 <div class="mb-4">
                     <label for="name" class="form-label block">NAME</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="name" placeholder="">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="name" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="school" class="form-label block">NAME OF THE SCHOOL/PLATFORM</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="school" placeholder="">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="school" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="type_of_learning" class="form-label block">TYPE OF LEARNING OFFERED</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="type_of_learning" placeholder="">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="type_of_learning" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="contact_info" class="form-label block">WEBSITE OR CONTACT INFORMATION</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="contact_info" placeholder="">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="contact_info" placeholder="" required>
                 </div>
                 <div class="mb-4">
-                    <label for="contact_info" class="form-label block">DESCRIPTION OF THE PLATFORM</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="contact_info" placeholder="">
+                    <label for="description" class="form-label block">DESCRIPTION OF THE PLATFORM</label>
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="description" placeholder="" required>
                 </div>
-
              
                 <div  class="flex justify-center align-center">
-                    <button type="submit"" class="p-4 px-9 Inknut darkblue text-sm font-bold rounded-2xl rounded-2xl text-white lg:px-[80px] lg:font-bold  ">Submit </button >
+                    <button type="submit" id="submission" class="p-4 px-9 Inknut darkblue text-sm font-bold rounded-2xl rounded-2xl text-white lg:px-[80px] lg:font-bold  ">Submit </button >
                 </div>
 
             </form>
@@ -197,7 +201,35 @@
     </div>
 </main>
 
-                
+<script>
+  document.getElementById('submissionForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get values from form fields
+    const name = document.getElementById('name').value;
+    const school = document.getElementById('school').value;
+    const type_of_learning = document.getElementById('type_of_learning').value;
+    const contact_info = document.getElementById('contact_info').value;
+    const description = document.getElementById('description').value;
+
+    // Create new submission object
+    const formData = {
+      id: Date.now().toString(), // Unique ID
+      name: name,
+      school: school,
+      type_of_learning: type_of_learning,
+      contact_info: contact_info,
+      description: description,
+      submission_type: "EDUCATION PLATFORM SUBMISSION FORM",
+      createdAt: new Date().toISOString()
+    };
+
+    const API_URL = "https://api.jsonbin.io/v3/b/67ef5a5d8561e97a50f86619"; // JSONBin URL
+    const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; // JSONBin Master Key
+
+    // Step 1: GET existing data
+   
+</script>
 
         <footer class="flex justify-center p-5 darkgrey">
             <h3 class="text-gray-600 text-sm">
