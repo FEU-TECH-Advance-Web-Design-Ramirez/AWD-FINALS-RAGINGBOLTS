@@ -271,12 +271,40 @@
     });
   }
 
+  function approveSubmission(entryRow, entryId) {
+    Swal.fire({
+        title: 'Are you sure you want to Approve this Submission?',
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Approve',
+        cancelButtonText: 'Cancel'
+    }).then(result => {
+        if (result.isConfirmed) {
+            // Update the status to "Approved"
+            const statusCell = entryRow.querySelector('.status-cell');
+            statusCell.textContent = 'Approved';
+            statusCell.classList.remove('text-red-600');
+            statusCell.classList.add('text-green-600');
+
+            // Store the approved status in localStorage
+            localStorage.setItem(`submission_${entryId}`, 'Approved');
+
+            Swal.fire(
+                'Approved!',
+                'The Submission has been Approved!',
+                'success'
+            );
+        }
+    });
+}
+
+
   // Build each row with inline action buttons
   function buildRow(entry) {
     const dataStr = encodeURIComponent(JSON.stringify(entry));
-    const entryId = entry.id;  // Assuming the entry has a unique 'id' field.
-    
-    // Check if the submission is already declined from localStorage
+    const entryId = entry.id; // Assuming the entry has a unique 'id' field.
+
+    // Check if the submission is already stored in localStorage
     const statusFromStorage = localStorage.getItem(`submission_${entryId}`);
     const status = statusFromStorage || 'Pending';
 
@@ -287,17 +315,31 @@
         <td class="px-2 py-2 border border-white text-center">${formatDate(entry.createdAt)}</td>
         <td class="px-2 py-2 border border-white text-center status-cell">${status}</td>
         <td class="px-2 py-2 border border-white text-center">
-          <button onclick='showDetails(JSON.parse(decodeURIComponent("${dataStr}")))' style="background-color: #1877F2; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-right: 6px;">View</button>
-          <button onclick='declineSubmission(this.closest("tr"), "${entryId}")' style="background-color: #FF5733; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px;">Decline</button>
+          <button onclick='showDetails(JSON.parse(decodeURIComponent("${dataStr}")))' 
+                  style="background-color: #1877F2; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-right: 6px;">
+            View
+          </button>
+          
+          <button onclick='approveSubmission(this.closest("tr"), "${entryId}")' 
+                  style="background-color: #28a745; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-right: 6px;">
+            Approve
+          </button>
+
+          <button onclick='declineSubmission(this.closest("tr"), "${entryId}")' 
+                  style="background-color: #FF5733; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px;">
+            Decline
+          </button>
         </td>
-        <td class="px-2 py-2 border border-white" colspan="61"></td>
       </tr>
     `;
-  }
+}
 
+
+  // Fetch data and build table
   function populateTable() {
     const tbody = document.querySelector("tbody");
 
+    // Education submissions
     axios.get(educationURL, {
       headers: { "X-Master-Key": MASTER_KEY }
     })
@@ -309,6 +351,7 @@
     })
     .catch(err => console.error("Error fetching education data", err));
 
+    // Reviews
     axios.get(reviewURL, {
       headers: { "X-Master-Key": MASTER_KEY }
     })
@@ -321,6 +364,7 @@
     .catch(err => console.error("Error fetching review data", err));
   }
 
+  // Load on page start
   populateTable();
 </script>
 
