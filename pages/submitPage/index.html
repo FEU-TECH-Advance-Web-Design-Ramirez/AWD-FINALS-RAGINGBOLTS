@@ -228,7 +228,45 @@
     const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; // JSONBin Master Key
 
     // Step 1: GET existing data
-   
+    axios.get(API_URL, {
+      headers: { "X-Master-Key": MASTER_KEY }
+    })
+    .then(response => {
+      let submissions = response.data.record;
+
+      // Ensure it's an array
+      if (!Array.isArray(submissions)) {
+        submissions = [];
+      }
+
+      submissions.push(formData); // Add new submission
+
+      // Step 2: PUT updated data back to JSONBin
+      return axios.put(API_URL, submissions, {
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY
+        }
+      });
+    })
+    .then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your Submission has been Submitted Successfully!',
+      });
+
+      document.getElementById('submissionForm').reset(); // Clear form
+    })
+    .catch(error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an Issue while Submitting your Submission!',
+      });
+      console.error("Error details:", error.response ? error.response.data : error.message);
+    });
+  });
 </script>
 
         <footer class="flex justify-center p-5 darkgrey">
