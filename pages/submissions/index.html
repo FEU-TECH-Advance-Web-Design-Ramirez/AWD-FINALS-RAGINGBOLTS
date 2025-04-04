@@ -18,14 +18,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/pages/submitReview/assets/css/style.css">
+    <link rel="stylesheet" href="pages/submitReview/assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweetalert2.min.css">
+    <script src="/pages/contactPage/assets/js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweet-alert-2.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
-<body class="Inknut">
+<body class="" style="font-family: Inknut Antiqua;">
     <header class="" >
-       <socmedContainer class="flex justify-center items-center p-3.5 lg:hidden lightblue">
+       <socmedContainer class="flex justify-center items-center p-3.5 lg:hidden" style="background-color: #1877F2;">
             <socmedLogo class="flex space-x-6 lg:space-x-12">
                 <a href="https://www.instagram.com/ragingboltsz/?fbclid=IwZXh0bgNhZW0CMTEAAR0LkZafdf6xwhAUjk8dX6t4PnkdA9SnnDVFybZFnF8UdUCTWjIqOg5q-VY_aem_pK1T6md4iD15dXcF0T2zYw" target="_blank">
                     <img src="assets/img/instagram 3.svg" alt="" class="" id="instagram">
@@ -44,7 +48,7 @@
 
         <upperBarnav class="flex items-center p-4 lg:p-0 justify-between">
             
-            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5 lightblue">
+            <socmedLogo class="hidden lg:flex lg:space-x-6 lg:p-5" style="background-color: #1877F2;">
                 <a href="https://www.instagram.com/ragingboltsz/?fbclid=IwZXh0bgNhZW0CMTEAAR0LkZafdf6xwhAUjk8dX6t4PnkdA9SnnDVFybZFnF8UdUCTWjIqOg5q-VY_aem_pK1T6md4iD15dXcF0T2zYw" target="_blank">
                     <img src="assets/img/instagram 3.svg" alt="" class="" id="instagram">
                 </a>
@@ -64,18 +68,16 @@
                 <a href="">
                     <img src="assets/img/user 3.svg" alt="">
                 </a>
-                <div class="flex justify-center items-center">
-                    <a href="">
-                        <h3 class="hover:bg-gray-300 transition-colors">Admin</h3>
-                    </a>  
-                </div>
+                <a href="">
+                    <h3 class="hover:bg-gray-300 transition-colors">Login</h3>
+                </a>  
                
             </adminCustomerCTA>
 
 
             <nav class="flex justify-between items-center lg:hidden">
                 <div
-                class="nav-links duration-500 lg:static absolute lg:min-h-fit min-h-[40vh] left-0 top-[-100%] lg:w-auto w-full flex items-center shadow-md px-5">
+                class="nav-links duration-500 lg:static absolute bg-white lg:min-h-fit min-h-[40vh] left-0 top-[-100%] lg:w-auto w-full flex items-center shadow-md px-5">
                     <ul class="flex lg:flex-row flex-col md:items-center lg:gap-[4vw] gap-8" id="navCTA";">
                         <li><a href="\pages\schoolPage\index.html"   class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SCHOOLS</a></li>
                         <li><a href="\pages\submitReview\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SUBMISSIONS</a></li>
@@ -109,16 +111,21 @@
 
             
         </div>
+       <!-- Lower Nav for smaller screens -->
 <lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9]">
     <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
     <img src="assets/img/RAGINGBOLT.svg" alt="">
 </lowerNav>
 
-<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full lightgrey">
+<!-- Main Navigation -->
+<div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full " style="background-color: #F8F8F8;">
+    <!-- First div containing images (Ranking logo and RagingBolt logo) with D9D9D9 background -->
     <div class="flex items-center bg-[#D9D9D9] p-3 pr-7">
         <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
         <img src="assets/img/RAGINGBOLT.svg" alt="">
     </div>
+    
+    <!-- Second div containing the unordered list -->
     <div class="ml-4">
         <ul class="flex ">
             <li><a href="\pages\schoolPage\index.html"   class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SCHOOLS</a></li>
@@ -128,11 +135,13 @@
         </ul>
     </div>
     
+    
+    <!-- Third div containing the search form aligned to the right -->
     <div class="ml-auto">
         <form action="#" method="get" class="p-4 justify-end flex border-[#D9D9D9] " id="searchBar">
-            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black darkgrey" id="placeholder">
+            <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
             <button type="submit" class="cursor-pointer w-8 rounded-l">
-                <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l darkgrey">
+                <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
             </button>
         </form>
     </div>
@@ -145,22 +154,23 @@
 
         <div>
             <form action="#" method="get" class="p-4 justify-end  flex border-[#D9D9D9] shadow: lg:hidden" id="searchBar" style="">
-                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder">
+                <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
                 <button type="submit" class="cursor-pointer w-8 rounded-l">
-                    <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l darkgrey">
+                    <img src="assets/img/loupe 3.svg" alt="Search Icon" class="rounded-l" style="background-color: #D9D9D9;">
                 </button>
             </form>
         </div>
         
-        <div class="flex justify-center text-center p-5 lg darkblue Inknut">
+        <div class="flex justify-center text-center p-5 lg" style="background-color: #03396C; font-family: Inknut Antiquw;">
             <h1 class="text-white text-xl ">SUBMISSIONS</h1>
         </div>
               
       
       
-   <main class="min-h-screen lg:p-3 font-Alata lighgrey Alata lightgrey Alata">
+   <main class="min-h-screen lg:p-3 font-Alata" style="background-color: #F8F8F8; font-family: Alata;">
     <div class="overflow-x-auto p-3 lg:p-5">
         <table class="min-w-full table-auto bg-[#03396C] text-white">
+          <!-- Table Header -->
           <thead>
             <tr>
               <th class="px-2 py-2 border border-white text-center">Name</th>
@@ -168,79 +178,155 @@
               <th class="px-2 py-2 border border-white text-center">Date Submitted</th>
               <th class="px-2 py-2 border border-white text-center">Status</th>
               <th class="px-2 py-2 border border-white text-center">Actions</th>
+              <!-- Empty cells for the remaining 61 columns -->
               <th class="px-2 py-2 border border-white" colspan="61"></th>
             </tr>
           </thead>
     
+          <!-- Table Body -->
           <tbody>
-            <tr>
-              <td class="px-2 py-2 border border-white text-center">John Doe</td>
-              <td class="px-2 py-2 border border-white text-center">Essay</td>
-              <td class="px-2 py-2 border border-white text-center">2025-03-31</td>
-              <td class="px-2 py-2 border border-white text-center">Pending</td>
-              <td class="px-2 py-2 border border-white text-center">
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded mr-2">View</button>
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded">Decline</button>
-              </td>
-              <td class="px-2 py-2 border border-white" colspan="61"></td>
-            </tr>
-    
-            <tr>
-              <td class="px-2 py-2 border border-white text-center">Jane Smith</td>
-              <td class="px-2 py-2 border border-white text-center">Report</td>
-              <td class="px-2 py-2 border border-white text-center">2025-03-30</td>
-              <td class="px-2 py-2 border border-white text-center">Completed</td>
-              <td class="px-2 py-2 border border-white text-center">
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded mr-2">View</button>
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded">Decline</button>
-              </td>
-              <td class="px-2 py-2 border border-white" colspan="61"></td>
-            </tr>
-    
-            <tr>
-              <td class="px-2 py-2 border border-white text-center">Sam Johnson</td>
-              <td class="px-2 py-2 border border-white text-center">Project</td>
-              <td class="px-2 py-2 border border-white text-center">2025-03-29</td>
-              <td class="px-2 py-2 border border-white text-center">In Progress</td>
-              <td class="px-2 py-2 border border-white text-center">
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded mr-2">View</button>
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded">Decline</button>
-              </td>
-              <td class="px-2 py-2 border border-white" colspan="61"></td>
-            </tr>
-    
-            <tr>
-              <td class="px-2 py-2 border border-white text-center">Alex Brown</td>
-              <td class="px-2 py-2 border border-white text-center">Presentation</td>
-              <td class="px-2 py-2 border border-white text-center">2025-03-28</td>
-              <td class="px-2 py-2 border border-white text-center">Pending</td>
-              <td class="px-2 py-2 border border-white text-center">
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded mr-2">View</button>
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded">Decline</button>
-              </td>
-              <td class="px-2 py-2 border border-white" colspan="61"></td>
-            </tr>
-    
-            <tr>
-              <td class="px-2 py-2 border border-white text-center">Lisa White</td>
-              <td class="px-2 py-2 border border-white text-center">Thesis</td>
-              <td class="px-2 py-2 border border-white text-center">2025-03-27</td>
-              <td class="px-2 py-2 border border-white text-center">Completed</td>
-              <td class="px-2 py-2 border border-white text-center">
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded mr-2">View</button>
-                <button class="bg-[#1877F2] hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded">Decline</button>
-              </td>
-              <td class="px-2 py-2 border border-white" colspan="61"></td>
-            </tr>
+            <!-- Row 1 -->
           </tbody>
         </table>
       </div>
    
    </main>
 
-                
+<script>
+  const educationURL = "https://api.jsonbin.io/v3/b/67ef5a5d8561e97a50f86619";
+  const reviewURL = "https://api.jsonbin.io/v3/b/67ef5a1a8561e97a50f865f7";
+  const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK";
 
-        <footer class="flex justify-center p-5 darkgrey">
+  // Format date as YYYY-MM-DD
+  function formatDate(isoString) {
+    const date = new Date(isoString);
+    return date.toISOString().split("T")[0];
+  }
+
+  // Show SweetAlert with inline styles and full details
+  function showDetails(data) {
+    let htmlContent = `
+      <div style="text-align: left; line-height: 1.6; font-size: 16px; color: #333; display: flex; flex-direction: column;">
+        <p style="display: flex; margin-bottom: 10px;">
+          <strong style="flex-basis: 140px;">Name:</strong> ${data.name || '—'}
+        </p>
+        <p style="display: flex; margin-bottom: 10px;">
+          <strong style="flex-basis: 140px;">School:</strong> ${data.school || '—'}
+        </p>
+        ${data.type_of_learning ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Type of Learning:</strong> ${data.type_of_learning}</p>` : ''}
+        ${data.contact_info ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Contact Info:</strong> ${data.contact_info}</p>` : ''}
+        ${data.description ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Description:</strong> ${data.description}</p>` : ''}
+        ${data.rating ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Rating:</strong> ${data.rating}</p>` : ''}
+        ${data.comment ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Comment:</strong> ${data.comment}</p>` : ''}
+        ${data.recommendation ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Recommendation:</strong> ${data.recommendation}</p>` : ''}
+        <p style="display: flex; margin-bottom: 10px;">
+          <strong style="flex-basis: 140px;">Submission Type:</strong> ${data.submission_type || '—'}
+        </p>
+        <p style="display: flex; margin-bottom: 10px;">
+          <strong style="flex-basis: 140px;">Submitted On:</strong> ${formatDate(data.createdAt)}
+        </p>
+      </div>
+    `;
+
+    // Inject custom style to override width
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .swal2-popup.custom-width {
+        width: 800px !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    Swal.fire({
+      title: 'Submission Details',
+      html: htmlContent,
+      confirmButtonText: 'Close',
+      customClass: {
+        popup: 'custom-width'
+      }
+    });
+  }
+
+  // Decline function to show a confirmation prompt
+  function declineSubmission(entryRow, entryId) {
+    Swal.fire({
+      title: 'Are you sure that you want to Decline this Submission?!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Decline',
+      cancelButtonText: 'Cancel'
+    }).then(result => {
+      if (result.isConfirmed) {
+        // Update the status to "Declined"
+        const statusCell = entryRow.querySelector('.status-cell');
+        statusCell.textContent = 'Declined';
+        
+        // Store the declined status in localStorage
+        localStorage.setItem(`submission_${entryId}`, 'Declined');
+        
+        Swal.fire(
+          'Declined!',
+          'The Submission has been Declined!',
+          'success'
+        );
+      }
+    });
+  }
+
+  // Build each row with inline action buttons
+  function buildRow(entry) {
+    const dataStr = encodeURIComponent(JSON.stringify(entry));
+    const entryId = entry.id;  // Assuming the entry has a unique 'id' field.
+    
+    // Check if the submission is already declined from localStorage
+    const statusFromStorage = localStorage.getItem(`submission_${entryId}`);
+    const status = statusFromStorage || 'Pending';
+
+    return `
+      <tr>
+        <td class="px-2 py-2 border border-white text-center">${entry.name || "—"}</td>
+        <td class="px-2 py-2 border border-white text-center">${entry.submission_type || "—"}</td>
+        <td class="px-2 py-2 border border-white text-center">${formatDate(entry.createdAt)}</td>
+        <td class="px-2 py-2 border border-white text-center status-cell">${status}</td>
+        <td class="px-2 py-2 border border-white text-center">
+          <button onclick='showDetails(JSON.parse(decodeURIComponent("${dataStr}")))' style="background-color: #1877F2; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-right: 6px;">View</button>
+          <button onclick='declineSubmission(this.closest("tr"), "${entryId}")' style="background-color: #FF5733; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px;">Decline</button>
+        </td>
+        <td class="px-2 py-2 border border-white" colspan="61"></td>
+      </tr>
+    `;
+  }
+
+  function populateTable() {
+    const tbody = document.querySelector("tbody");
+
+    axios.get(educationURL, {
+      headers: { "X-Master-Key": MASTER_KEY }
+    })
+    .then(res => {
+      const records = Array.isArray(res.data.record) ? res.data.record : [];
+      records.forEach(entry => {
+        tbody.insertAdjacentHTML("beforeend", buildRow(entry));
+      });
+    })
+    .catch(err => console.error("Error fetching education data", err));
+
+    axios.get(reviewURL, {
+      headers: { "X-Master-Key": MASTER_KEY }
+    })
+    .then(res => {
+      const records = Array.isArray(res.data.record) ? res.data.record : [];
+      records.forEach(entry => {
+        tbody.insertAdjacentHTML("beforeend", buildRow(entry));
+      });
+    })
+    .catch(err => console.error("Error fetching review data", err));
+  }
+
+  populateTable();
+</script>
+
+        <footer class="flex justify-center p-5" style="background-color: #D9D9D9;">
             <h3 class="text-gray-600 text-xs">
                 Copyright © 2025, All Rights Reserved
             </h3>

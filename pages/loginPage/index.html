@@ -197,31 +197,35 @@
 
       <script>
         document.getElementById('loginForm').addEventListener('submit', async function(event) {
-          event.preventDefault(); 
+          event.preventDefault(); // Prevent form submission
       
+          // Get form values
           const email = document.getElementById('email').value;
           const password = document.getElementById('password').value;
       
           try {
-            const API_URL = "https://api.jsonbin.io/v3/b/67ef59a08561e97a50f865ae"; 
-            const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; 
+            // JSONBin API details
+            const API_URL = "https://api.jsonbin.io/v3/b/67ef59a08561e97a50f865ae"; // Your bin URL
+            const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; // Your JSONBin Master Key
       
             const response = await axios.get(API_URL, {
               headers: { "X-Master-Key": MASTER_KEY }
             });
       
             let users = response.data.record.record || []; 
-      
             const user = users.find(u => u.email === email);
             if (!user) {
               throw new Error("User not found!");
             }
+      
+            const inputHashedPassword = sha3_256(password); 
       
             if (user.password !== inputHashedPassword) {
               throw new Error("Incorrect password!");
             }
       
             if (user.role && user.role.toLowerCase() === 'admin') {
+              // If the user is an admin, redirect to the user list page
               Swal.fire({
                 icon: 'success',
                 title: 'Login Successful!',
@@ -230,6 +234,7 @@
                 window.location.href = '../../pages/userList/index.html'; 
               });
             } else {
+              // If the user is not an admin, redirect to the home page
               Swal.fire({
                 icon: 'success',
                 title: 'Login Successful!',
