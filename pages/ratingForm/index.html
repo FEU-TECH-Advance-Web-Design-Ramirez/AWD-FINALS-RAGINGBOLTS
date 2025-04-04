@@ -8,8 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <title>RagingBolt - Sub</title>
     <link rel="stylesheet" href="/pages/ratingForm/assets/css/style.css">
@@ -21,6 +20,11 @@
     <script src="/pages/ratingForm/assets/js/scripts.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweetalert2.min.css">
+    <script src="/pages/contactPage/assets/js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweet-alert-2.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.9.3/sha3.min.js"></script>
 </head>
 
 <body class=" Inknut ">
@@ -161,29 +165,29 @@
     <div class="flex justify-center xl:m-20 ">
         <div class="w-full max-w-lg lg:max-w-3xl bg-white p-6 rounded-lg shadow-md xl:max-w-2x3 ">
 
-            <form action="#" method="POST">
+            <form id="ratingForm" method="POST">
                 <div class="mb-4">
                     <label for="name" class="form-label block">NAME</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="name" placeholder="">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="name" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="school" class="form-label block">NAME OF THE SCHOOL/PLATFORM</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="school" placeholder="">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="school" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="type_of_learning" class="form-label block">RATING (1-5) </label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="rating" placeholder="">
+                    <input type="number" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="rating" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="contact_info" class="form-label block">REVIEW DESCRIPTION</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="comment">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="comment" required>
                 </div>
                 <div class="mb-4">
                     <label for="contact_info" class="form-label block">RECOMMENDATION</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="recommendation">
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="recommendation" required>
                 </div>
 
              
@@ -197,13 +201,41 @@
     </div>
 </main>
 
-                
+<script>
+  document.getElementById('ratingForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get values from form fields
+    const name = document.getElementById('name').value;
+    const school = document.getElementById('school').value;
+    const rating = document.getElementById('rating').value;
+    const comment = document.getElementById('comment').value;
+    const recommendation = document.getElementById('recommendation').value;
+
+    // Create new review object
+    const formData = {
+      id: Date.now().toString(), // Unique ID
+      name: name,
+      school: school,
+      rating: rating,
+      comment: comment,
+      recommendation: recommendation,
+      submission_type: "PERSONAL REVIEW & RATING FORM",
+      createdAt: new Date().toISOString()
+    };
+
+    const API_URL = "https://api.jsonbin.io/v3/b/67ef5a1a8561e97a50f865f7"; // JSONBin URL
+    const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; // JSONBin Master Key
+
+   
+</script>
 
         <footer class="flex justify-center p-5 darkgrey">
             <h3 class="text-gray-600 text-md Inknut">
                 Copyright © 2025, All Rights Reserved
             </h3>
         </footer>
+        
 </body>
 
 </html>
