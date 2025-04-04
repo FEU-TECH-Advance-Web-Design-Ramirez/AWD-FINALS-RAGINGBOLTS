@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -170,14 +171,12 @@
     <div class="lg:flex lg:justify-center">
         <div class="xl:flex justify-center w-full md:flex sm:flex">
             <form action="" method="POST" id="contactForm" class="md:w-[70%] lg:max-w-2xl 2xl:max-w-3xl sm:w-[70%]">
-                <!-- Name Field -->
                 <div class="flex justify-center">
                     <div class="mb-4 p-3 w-full">
                         <label for="email" class="form-label block">Email</label>
                         <input type="text" class="form-control w-full p-2 rounded-2xl placeholder-[#F8F8F8] font-InknutAntiqua border-2 border-[#BFBFBF]" id="email" placeholder="Enter a Valid Email Address" style="background-color: #BFBFBF;" autocomplete="email" required>
                     </div>
 
-                    <!-- Name of the School/Platform Field -->
                     <div class="mb-4 p-3 w-full">
                         <label for="name" class="form-label block">Name</label>
                         <input type="text" class="form-control w-full p-2 rounded-2xl placeholder-[#F8F8F8] font-InknutAntiqua border-2 border-[#BFBFBF]" id="name" placeholder="Enter your Name" style="background-color: #BFBFBF;" autocomplete="name" required>
@@ -194,7 +193,6 @@
                 <div class="py-10">
                 </div>
 
-                <!-- Social Media Icons -->
                 <div class="flex justify-evenly p-5 shadow-md my-10">
                     <a href="https://www.instagram.com/ragingboltsz/?fbclid=IwZXh0bgNhZW0CMTEAAR0LkZafdf6xwhAUjk8dX6t4PnkdA9SnnDVFybZFnF8UdUCTWjIqOg5q-VY_aem_pK1T6md4iD15dXcF0T2zYw" target="_blank">
                         <img src="assets/img/instagram (1) 1.svg" alt="Instagram" class="w-9 md: lg:w-8">
@@ -243,22 +241,19 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   const API_URL = "https://api.jsonbin.io/v3/b/67ef59548561e97a50f86586";
   const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK";
 
-  // Step 1: GET existing data
   axios.get(API_URL, {
     headers: { "X-Master-Key": MASTER_KEY }
   })
   .then(response => {
-    let contacts = response.data.record; // Get current records
+    let contacts = response.data.record; 
 
-    // Step 2: Ensure it’s an array
     if (!Array.isArray(contacts)) {
-      contacts = []; // Reset if it’s not an array
+      contacts = []; 
     }
 
-    contacts.push(formData); // Step 3: Append new contact
+    contacts.push(formData); 
 
-    // Step 4: SAVE (PUT) the updated array back to JSONBin
-    return axios.put(API_URL, contacts, {  // <=== NO "record": contacts
+    return axios.put(API_URL, contacts, {  
       headers: {
         "Content-Type": "application/json",
         "X-Master-Key": MASTER_KEY
