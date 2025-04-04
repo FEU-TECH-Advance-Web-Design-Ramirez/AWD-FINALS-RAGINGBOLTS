@@ -6,11 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <title>RagingBolt - Sub</title>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -21,6 +19,10 @@
     <link rel="stylesheet" href="/pages/contactPage/assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=NTR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweetalert2.min.css">
+    <script src="/pages/contactPage/assets/js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/pages/contactPage/assets/css/sweet-alert-2.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -167,23 +169,23 @@
 
     <div class="lg:flex lg:justify-center">
         <div class="xl:flex justify-center w-full md:flex sm:flex">
-            <form action="#" method="POST" class="md:w-[70%] lg:max-w-2xl 2xl:max-w-3xl sm:w-[70%]">
+            <form action="" method="POST" id="contactForm" class="md:w-[70%] lg:max-w-2xl 2xl:max-w-3xl sm:w-[70%]">
                 <!-- Name Field -->
                 <div class="flex justify-center">
                     <div class="mb-4 p-3 w-full">
-                        <label for="name" class="form-label block">Email</label>
-                        <input type="text" class="form-control w-full p-2 rounded-2xl placeholder-[#F8F8F8] font-InknutAntiqua border-2 border-[#BFBFBF]" id="name" placeholder="Enter a Valid Email Address" style="background-color: #BFBFBF;">
+                        <label for="email" class="form-label block">Email</label>
+                        <input type="text" class="form-control w-full p-2 rounded-2xl placeholder-[#F8F8F8] font-InknutAntiqua border-2 border-[#BFBFBF]" id="email" placeholder="Enter a Valid Email Address" style="background-color: #BFBFBF;" autocomplete="email" required>
                     </div>
 
                     <!-- Name of the School/Platform Field -->
                     <div class="mb-4 p-3 w-full">
-                        <label for="school" class="form-label block">Name</label>
-                        <input type="text" class="form-control w-full p-2 rounded-2xl placeholder-[#F8F8F8] font-InknutAntiqua border-2 border-[#BFBFBF]" id="school" placeholder="Enter your Name" style="background-color: #BFBFBF;">
+                        <label for="name" class="form-label block">Name</label>
+                        <input type="text" class="form-control w-full p-2 rounded-2xl placeholder-[#F8F8F8] font-InknutAntiqua border-2 border-[#BFBFBF]" id="name" placeholder="Enter your Name" style="background-color: #BFBFBF;" autocomplete="name" required>
                     </div>
                 </div>
 
                 <div class="flex justify-center lg:w-[30%] md:w-[50%] md:m-auto p-3">
-                    <button type="submit"  class="p-4 text-sm w-full rounded-2xl text-white lg:font-bold" id="submitButton">
+                    <button type="submit" class="p-4 text-sm w-full rounded-2xl text-white lg:font-bold" id="submitButton">
                         Submit
                     </button>
                 </div>
@@ -224,4 +226,63 @@
         </footer>
 </body>
 
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const name = document.getElementById('name').value;
+
+  const formData = {
+    id: Date.now().toString(),
+    email: email,
+    name: name,
+    createdAt: new Date().toISOString()
+  };
+
+  const API_URL = "https://api.jsonbin.io/v3/b/67ef59548561e97a50f86586";
+  const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK";
+
+  // Step 1: GET existing data
+  axios.get(API_URL, {
+    headers: { "X-Master-Key": MASTER_KEY }
+  })
+  .then(response => {
+    let contacts = response.data.record; // Get current records
+
+    // Step 2: Ensure it’s an array
+    if (!Array.isArray(contacts)) {
+      contacts = []; // Reset if it’s not an array
+    }
+
+    contacts.push(formData); // Step 3: Append new contact
+
+    // Step 4: SAVE (PUT) the updated array back to JSONBin
+    return axios.put(API_URL, contacts, {  // <=== NO "record": contacts
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": MASTER_KEY
+      }
+    });
+  })
+  .then(response => {
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Your Contact has been Submitted!',
+    });
+
+    document.getElementById('contactForm').reset();
+  })
+  .catch(error => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'There was an issue while submitting your contact!',
+    });
+    console.error("Error details:", error.response ? error.response.data : error.message);
+  });
+});
+  </script>
+  
 </html>
