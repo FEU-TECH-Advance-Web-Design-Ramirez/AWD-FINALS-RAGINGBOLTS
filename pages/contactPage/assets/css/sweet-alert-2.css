@@ -1,0 +1,188 @@
+.my-swal-popup-success
+ {
+   width: 500px !important;
+   height: auto;
+   padding: 20px;
+   font-size: 18px;
+ }
+
+.my-swal-title-success
+ {
+   font-size: 24px;
+   color: #2E8B57;
+ }
+
+.my-swal-content-success
+ {
+   font-size: 20px;
+   color: #555;
+ }
+
+.swal2-confirm-success
+ {
+   background-color: #2E8B57 !important;
+   font-size: 18px !important;
+   padding: 10px 20px !important;
+ }
+
+.my-swal-popup-error
+ {
+   width: 500px !important;
+   height: auto;
+   padding: 20px;
+   font-size: 18px;
+ }
+
+.my-swal-title-error
+ {
+   font-size: 24px;
+   color: #D33;
+ }
+
+.my-swal-content-error
+ {
+   font-size: 20px;
+   color: #555;
+ }
+
+.swal2-confirm-error
+ {
+   background-color: #D33 !important;
+   font-size: 18px !important;
+   padding: 10px 20px !important;
+ }
+
+.my-swal-popup-info
+ {
+   width: 500px !important;
+   height: auto;
+   padding: 20px;
+   font-size: 18px;
+ }
+
+.my-swal-title-info
+ {
+   font-size: 24px;
+   color: #36A3f7;
+ }
+
+.my-swal-content-info
+ {
+   font-size: 20px;
+   color: #555;
+ }
+
+.swal2-confirm-info
+ {
+   background-color: #36A3F7 !important;
+   font-size: 18px !important;
+   padding: 10px 20px !important;
+ }
+
+.my-swal-popup-info-responsive
+ {
+   width: 900px !important;
+   height: 700px !important;
+   padding: 20px;
+   font-size: 18px;
+ }
+
+.my-swal-title-info-responsive
+ {
+   font-size: 24px;
+   color: #36A3f7;
+ }
+
+.my-swal-content-info-responsive
+ {
+   font-size: 20px;
+   color: #555;
+ }
+
+.swal2-confirm-info-responsive
+ {
+   background-color: #36A3F7 !important;
+   font-size: 18px !important;
+   padding: 10px 20px !important;
+ }
+
+.my-swal-popup-warning
+ {
+   width: 500px !important;
+   height: auto;
+   padding: 20px;
+   font-size: 18px;
+ }
+
+.my-swal-title-warning
+ {
+    font-size: 24px;
+    color: #D33;
+ }
+
+.my-swal-content-warning
+ {
+   font-size: 20px;
+   color: #555;
+ }
+
+.swal2-confirm-warning
+ {
+   background-color: #D33 !important;
+   font-size: 18px !important;
+   padding: 10px 20px !important;
+ }
+
+.my-toast-container
+ {
+   width: 100% !important;
+ }
+
+.my-toast-popup
+ {
+   background-color: #E7DFD8 !important;
+   color: #2E8B57 !important;
+   width: 100% !important;
+   z-index: 9999;
+ }
+
+.my-toast-title
+ {
+   font-size: 1.2rem !important;
+   font-weight: bold !important;
+ }
+
+.my-toast-content
+ {
+   font-size: 1.2rem !important;
+ }
+
+.my-toast-icon
+ {
+   font-size: 1.2rem !important;
+ }
+
+.pin-container
+ {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   max-width: 300px;
+   margin: 0 auto;
+ }
+
+.swal2-input
+ {
+   width: 50px;
+   text-align: center;
+   margin: 0 5px;
+   font-size: 1.5rem;
+ }
+
+@media (max-width: 720px) {
+  .swal2-input {
+      max-width: 40px;
+      max-height: 40px;
+      margin: 0 1px;
+   }
+}
