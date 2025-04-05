@@ -24,6 +24,7 @@
     <script src="/pages/contactPage/assets/js/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="/pages/contactPage/assets/css/sweet-alert-2.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.9.3/sha3.min.js"></script>
 </head>
 
 <body>
@@ -67,7 +68,7 @@
                 <a href="">
                     <img src="assets/img/user 3.svg" alt="">
                 </a>
-                <a href="">
+                <a href="/pages/loginPage/index.html"">
                     <h3 class="hover:bg-gray-300 transition-colors">Login</h3>
                 </a>  
                
@@ -80,7 +81,7 @@
                     <ul class="flex lg:flex-row flex-col md:items-center lg:gap-[4vw] gap-8" id="navCTA";">
                         <li><a href="\index.html"                   class="no-underline rounded-xl m-7 p-3 m hover:bg-gray-300 transition-colors">HOME</a></li>
                         <li><a href="\pages\aboutUs\index.html"     class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">ABOUT</a></li>
-                        <li><a href="\pages\schoolPage\index.html"  class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SCHOOLS</a></li>
+                        <li><a href="\pages\schoolPageClient\index.html"  class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SCHOOLS</a></li>
                         <li><a href="\pages\submitReview\index.html"  class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SUBMIT</a></li>
                         <li><a href="\pages\contactPage\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">CONTACT</a></li>
                     </ul>
@@ -126,7 +127,7 @@
         <ul class="flex ">
             <li><a href="\index.html"                            class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">HOME</a></li>
             <li><a href="\pages\aboutUs\index.html"     class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">ABOUT</a></li>
-            <li><a href="\pages\schoolPage\index.html"  class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SCHOOLS</a></li>
+            <li><a href="\pages\schoolPageClient\index.html"  class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SCHOOLS</a></li>
             <li><a href="\pages\submitReview\index.html"  class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SUBMIT</a></li>
             <li><a href="\pages\contactPage\index.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">CONTACT</a></li>
         </ul>
@@ -224,60 +225,6 @@
         </footer>
 </body>
 
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const email = document.getElementById('email').value;
-  const name = document.getElementById('name').value;
-
-  const formData = {
-    id: Date.now().toString(),
-    email: email,
-    name: name,
-    createdAt: new Date().toISOString()
-  };
-
-  const API_URL = "https://api.jsonbin.io/v3/b/67ef59548561e97a50f86586";
-  const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK";
-
-  axios.get(API_URL, {
-    headers: { "X-Master-Key": MASTER_KEY }
-  })
-  .then(response => {
-    let contacts = response.data.record; 
-
-    if (!Array.isArray(contacts)) {
-      contacts = []; 
-    }
-
-    contacts.push(formData); 
-
-    return axios.put(API_URL, contacts, {  
-      headers: {
-        "Content-Type": "application/json",
-        "X-Master-Key": MASTER_KEY
-      }
-    });
-  })
-  .then(response => {
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'Your Contact has been Submitted!',
-    });
-
-    document.getElementById('contactForm').reset();
-  })
-  .catch(error => {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'There was an issue while submitting your contact!',
-    });
-    console.error("Error details:", error.response ? error.response.data : error.message);
-  });
-});
-  </script>
+<script src="../contactPage/assets/js/scripts.js"></script>
   
 </html>

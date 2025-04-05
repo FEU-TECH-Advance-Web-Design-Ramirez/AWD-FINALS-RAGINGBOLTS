@@ -71,7 +71,7 @@
                 <a href="">
                     <img src="assets/img/user 3.svg" alt="">
                 </a>
-                <a href="">
+                <a href="\pages\loginPage\index.html">
                     <h3 class="hover:bg-gray-300 transition-colors">Login</h3>
                 </a>  
                
@@ -186,62 +186,7 @@
         </div>
       </div>
       
-<script>
-  document.getElementById('registerForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); 
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    try {
-      const hashedPassword = sha3_256(password); 
-
-      const userData = {
-        id: Date.now().toString(), 
-        email: email,
-        name: name,
-        password: hashedPassword, 
-        createdAt: new Date().toISOString()
-      };
-
-      const API_URL = "https://api.jsonbin.io/v3/b/67ef59a08561e97a50f865ae"; 
-      const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; 
-
-      const response = await axios.get(API_URL, {
-        headers: { "X-Master-Key": MASTER_KEY }
-      });
-
-      let users = response.data.record.record || []; 
-
-      users.push(userData);
-
-      await axios.put(API_URL, { record: users }, {
-        headers: {
-          "Content-Type": "application/json",
-          "X-Master-Key": MASTER_KEY
-        }
-      });
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Success!',
-        text: 'User Registered Successfully!',
-      }).then(() => {
-        window.location.href = '../loginPage/index.html'; 
-      });
-      
-      document.getElementById('registerForm').reset();
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Failed to Register!',
-        text: 'Sorry unable to Register, Please try again later!',
-      });
-      console.error("Error details:", error.response ? error.response.data : error.message);
-    }
-  });
-</script>
+<script src="../signupPage/assets/js/scripts.js"></script>
       
     </body>
     </html>

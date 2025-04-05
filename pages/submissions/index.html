@@ -78,8 +78,7 @@
                 class="nav-links duration-500 lg:static absolute bg-white lg:min-h-fit min-h-[40vh] left-0 top-[-100%] lg:w-auto w-full flex items-center shadow-md px-5">
                     <ul class="flex lg:flex-row flex-col md:items-center lg:gap-[4vw] gap-8" id="navCTA";">
                         <li><a href="\pages\schoolPage\index.html"   class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SCHOOLS</a></li>
-                        <li><a href="\pages\submitReview\index.html" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SUBMISSIONS</a></li>
-                        <li><a href="\pages\contactPage\index.html"  class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">CONTACT</a></li>
+                        <li><a href="#" class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">SUBMISSIONS</a></li>
                         <li><a href="\pages\userList\index.html"     class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">USER LIST</a></li>
                     </ul>
                 </div>
@@ -109,32 +108,31 @@
 
             
         </div>
-       <!-- Lower Nav for smaller screens -->
+    
 <lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9]">
     <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
     <img src="assets/img/RAGINGBOLT.svg" alt="">
 </lowerNav>
 
-<!-- Main Navigation -->
+
 <div class="hidden lg:flex bg-white shadow:xl items-center lg:justify-between w-full " style="background-color: #F8F8F8;">
-    <!-- First div containing images (Ranking logo and RagingBolt logo) with D9D9D9 background -->
+
     <div class="flex items-center bg-[#D9D9D9] p-3 pr-7">
         <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
         <img src="assets/img/RAGINGBOLT.svg" alt="">
     </div>
     
-    <!-- Second div containing the unordered list -->
+  
     <div class="ml-4">
         <ul class="flex ">
             <li><a href="\pages\schoolPage\index.html"   class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SCHOOLS</a></li>
-            <li><a href="\pages\submitReview\index.html" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SUBMISSIONS</a></li>
-            <li><a href="\pages\contactPage\index.html"  class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">CONTACT</a></li>
+            <li><a href="#" class="p-[16.5px] lg:py-[19px] lg:p-[15.5px] xl:p-[35px] xl:py-[19px] hover:bg-gray-300 active:bg-gray-400 transition-colors text-sm">SUBMISSIONS</a></li>
             <li><a href="\pages\userList\index.html"     class="no-underline rounded-xl m-7 p-3 hover:bg-gray-300 transition-colors">USER LIST</a></li>
         </ul>
     </div>
     
     
-    <!-- Third div containing the search form aligned to the right -->
+  
     <div class="ml-auto">
         <form action="#" method="get" class="p-4 justify-end flex border-[#D9D9D9] " id="searchBar">
             <input type="text" name="search" placeholder="SEARCH SCHOOLS" class="text-center text-xs rounded-l placeholder-black" id="placeholder" style="background-color: #D9D9D9;">
@@ -168,7 +166,7 @@
    <main class="min-h-screen lg:p-3 font-Alata" style="background-color: #F8F8F8; font-family: Alata;">
     <div class="overflow-x-auto p-3 lg:p-5">
         <table class="min-w-full table-auto bg-[#03396C] text-white">
-          <!-- Table Header -->
+     
           <thead>
             <tr>
               <th class="px-2 py-2 border border-white text-center">Name</th>
@@ -176,197 +174,21 @@
               <th class="px-2 py-2 border border-white text-center">Date Submitted</th>
               <th class="px-2 py-2 border border-white text-center">Status</th>
               <th class="px-2 py-2 border border-white text-center">Actions</th>
-              <!-- Empty cells for the remaining 61 columns -->
+           
               <th class="px-2 py-2 border border-white" colspan="61"></th>
             </tr>
           </thead>
     
-          <!-- Table Body -->
+      
           <tbody>
-            <!-- Row 1 -->
+         
           </tbody>
         </table>
       </div>
    
    </main>
 
-<script>
-  const educationURL = "https://api.jsonbin.io/v3/b/67ef5a5d8561e97a50f86619";
-  const reviewURL = "https://api.jsonbin.io/v3/b/67ef5a1a8561e97a50f865f7";
-  const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK";
-
-  // Format date as YYYY-MM-DD
-  function formatDate(isoString) {
-    const date = new Date(isoString);
-    return date.toISOString().split("T")[0];
-  }
-
-  // Show SweetAlert with inline styles and full details
-  function showDetails(data) {
-    let htmlContent = `
-      <div style="text-align: left; line-height: 1.6; font-size: 16px; color: #333; display: flex; flex-direction: column;">
-        <p style="display: flex; margin-bottom: 10px;">
-          <strong style="flex-basis: 140px;">Name:</strong> ${data.name || '—'}
-        </p>
-        <p style="display: flex; margin-bottom: 10px;">
-          <strong style="flex-basis: 140px;">School:</strong> ${data.school || '—'}
-        </p>
-        ${data.type_of_learning ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Type of Learning:</strong> ${data.type_of_learning}</p>` : ''}
-        ${data.contact_info ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Contact Info:</strong> ${data.contact_info}</p>` : ''}
-        ${data.description ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Description:</strong> ${data.description}</p>` : ''}
-        ${data.rating ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Rating:</strong> ${data.rating}</p>` : ''}
-        ${data.comment ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Comment:</strong> ${data.comment}</p>` : ''}
-        ${data.recommendation ? `<p style="display: flex; margin-bottom: 10px;"><strong style="flex-basis: 140px;">Recommendation:</strong> ${data.recommendation}</p>` : ''}
-        <p style="display: flex; margin-bottom: 10px;">
-          <strong style="flex-basis: 140px;">Submission Type:</strong> ${data.submission_type || '—'}
-        </p>
-        <p style="display: flex; margin-bottom: 10px;">
-          <strong style="flex-basis: 140px;">Submitted On:</strong> ${formatDate(data.createdAt)}
-        </p>
-      </div>
-    `;
-
-    // Inject custom style to override width
-    const style = document.createElement("style");
-    style.innerHTML = `
-      .swal2-popup.custom-width {
-        width: 800px !important;
-      }
-    `;
-    document.head.appendChild(style);
-
-    Swal.fire({
-      title: 'Submission Details',
-      html: htmlContent,
-      confirmButtonText: 'Close',
-      customClass: {
-        popup: 'custom-width'
-      }
-    });
-  }
-
-  // Decline function to show a confirmation prompt
-  function declineSubmission(entryRow, entryId) {
-    Swal.fire({
-      title: 'Are you sure that you want to Decline this Submission?!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, Decline',
-      cancelButtonText: 'Cancel'
-    }).then(result => {
-      if (result.isConfirmed) {
-        // Update the status to "Declined"
-        const statusCell = entryRow.querySelector('.status-cell');
-        statusCell.textContent = 'Declined';
-        
-        // Store the declined status in localStorage
-        localStorage.setItem(`submission_${entryId}`, 'Declined');
-        
-        Swal.fire(
-          'Declined!',
-          'The Submission has been Declined!',
-          'success'
-        );
-      }
-    });
-  }
-
-  function approveSubmission(entryRow, entryId) {
-    Swal.fire({
-        title: 'Are you sure you want to Approve this Submission?',
-        icon: 'success',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, Approve',
-        cancelButtonText: 'Cancel'
-    }).then(result => {
-        if (result.isConfirmed) {
-            // Update the status to "Approved"
-            const statusCell = entryRow.querySelector('.status-cell');
-            statusCell.textContent = 'Approved';
-            statusCell.classList.remove('text-red-600');
-            statusCell.classList.add('text-green-600');
-
-            // Store the approved status in localStorage
-            localStorage.setItem(`submission_${entryId}`, 'Approved');
-
-            Swal.fire(
-                'Approved!',
-                'The Submission has been Approved!',
-                'success'
-            );
-        }
-    });
-}
-
-
-  // Build each row with inline action buttons
-  function buildRow(entry) {
-    const dataStr = encodeURIComponent(JSON.stringify(entry));
-    const entryId = entry.id; // Assuming the entry has a unique 'id' field.
-
-    // Check if the submission is already stored in localStorage
-    const statusFromStorage = localStorage.getItem(`submission_${entryId}`);
-    const status = statusFromStorage || 'Pending';
-
-    return `
-      <tr>
-        <td class="px-2 py-2 border border-white text-center">${entry.name || "—"}</td>
-        <td class="px-2 py-2 border border-white text-center">${entry.submission_type || "—"}</td>
-        <td class="px-2 py-2 border border-white text-center">${formatDate(entry.createdAt)}</td>
-        <td class="px-2 py-2 border border-white text-center status-cell">${status}</td>
-        <td class="px-2 py-2 border border-white text-center">
-          <button onclick='showDetails(JSON.parse(decodeURIComponent("${dataStr}")))' 
-                  style="background-color: #1877F2; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-right: 6px;">
-            View
-          </button>
-          
-          <button onclick='approveSubmission(this.closest("tr"), "${entryId}")' 
-                  style="background-color: #28a745; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-right: 6px;">
-            Approve
-          </button>
-
-          <button onclick='declineSubmission(this.closest("tr"), "${entryId}")' 
-                  style="background-color: #FF5733; color: white; font-weight: 600; padding: 4px 12px; border-radius: 4px;">
-            Decline
-          </button>
-        </td>
-      </tr>
-    `;
-}
-
-
-  // Fetch data and build table
-  function populateTable() {
-    const tbody = document.querySelector("tbody");
-
-    // Education submissions
-    axios.get(educationURL, {
-      headers: { "X-Master-Key": MASTER_KEY }
-    })
-    .then(res => {
-      const records = Array.isArray(res.data.record) ? res.data.record : [];
-      records.forEach(entry => {
-        tbody.insertAdjacentHTML("beforeend", buildRow(entry));
-      });
-    })
-    .catch(err => console.error("Error fetching education data", err));
-
-    // Reviews
-    axios.get(reviewURL, {
-      headers: { "X-Master-Key": MASTER_KEY }
-    })
-    .then(res => {
-      const records = Array.isArray(res.data.record) ? res.data.record : [];
-      records.forEach(entry => {
-        tbody.insertAdjacentHTML("beforeend", buildRow(entry));
-      });
-    })
-    .catch(err => console.error("Error fetching review data", err));
-  }
-
-  // Load on page start
-  populateTable();
-</script>
+<script src="../submissions/assets/js/scripts.js"></script>
 
         <footer class="flex justify-center p-5" style="background-color: #D9D9D9;">
             <h3 class="text-gray-600 text-xs">

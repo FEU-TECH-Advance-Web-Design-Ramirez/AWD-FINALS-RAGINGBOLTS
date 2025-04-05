@@ -1,49 +1,73 @@
-// Handle form submission
-document.getElementById('reviewForm').addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent the default form submission
+document.getElementById('ratingForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+ 
+  const rating = document.getElementById('rating').value;
+  const comment = document.getElementById('comment').value;
   
-    const name = document.getElementById('name').value;
-    const school = document.getElementById('school').value;
-    const rating = document.getElementById('rating').value;
-    const comment = document.getElementById('comment').value;
-    const recommendation = document.getElementById('recommendation').value;
   
-    if (!name || !school || !rating || !comment) {
-      alert('Please fill in all required fields!');
+  const userId = localStorage.getItem('userId');
+  const platformId = localStorage.getItem('platformId');
+
+  if (!userId || !platformId) {
+      Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'User ID or Platform ID not found.',
+      });
       return;
-    }
+  }
+
+
   
-    // Prepare the data object for submission
-    const data = {
-      platformId: school, // Assuming `platformId` is the name of the school/platform
-      userId: name,       // Assuming `userId` is the name for now, you should replace it accordingly
+  const payload = {
+      platform_id: platformId,
+      platformId: platformId,  
+      userId: userId,
+      user_id: userId,        
       rating: parseInt(rating),
       comment: comment,
-    };
-  
-    try {
-      // Send the POST request to the API
-      const response = await fetch('/api/reviews', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      recommendation: document.getElementById('recommendation')?.value || "" 
+  };
+
+  console.log("Payload being sent:", payload);
+
+  const apiUrl = `https://demo-api-skills.vercel.app/api/EduSeeker/reviews`;
+
+  try {
+    
+      const response = await axios.post(apiUrl, JSON.stringify(payload), {
+          headers: {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'application/json',
+          }
       });
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your rating has been submitted successfully!',
+    });
+
   
-      const result = await response.json();
-  
-      // Handle the response
-      if (response.status === 201) {
-        alert('Review submitted successfully!');
-        // Optionally, you can reset the form
-        document.getElementById('reviewForm').reset();
-      } else {
-        alert(`Error: ${result.error || 'Failed to submit review'}`);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An unexpected error occurred.');
-    }
-  });
-  
+    const storedReviews = JSON.parse(localStorage.getItem("submittedReviews") || "[]");
+    storedReviews.push(payload);
+    localStorage.setItem("submittedReviews", JSON.stringify(storedReviews));
+
+    document.getElementById('ratingForm').reset();
+
+  } catch (error) {
+     
+      const errorMessage = error.response?.data?.error || error.message || 'Unknown error';
+      const errorDetails = error.response?.data || {};
+      
+      Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: `There was an issue while submitting your rating: ${errorMessage}`,
+      });
+      
+      console.error("Error details:", errorDetails);
+      console.error("Full error object:", error);
+  }
+});

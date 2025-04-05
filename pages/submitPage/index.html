@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FONTS -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -69,7 +69,7 @@
                 <a href="">
                     <img src="assets/img/user 3.svg" alt="">
                 </a>
-                <a href="">
+                <a href="\pages\loginPage\index.html">
                     <h3 class="hover:bg-gray-300 transition-colors">Login</h3>
                 </a>  
                
@@ -112,13 +112,13 @@
 
             
         </div>
-       <!-- Lower Nav for smaller screens -->
+
 <lowerNav class="lg:hidden flex p-3 justify-center bg-[#D9D9D9]">
     <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
     <img src="assets/img/RAGINGBOLT.svg" alt="">
 </lowerNav>
 
-<!-- Main Navigation -->
+
 <div class="hidden lg:flex shadow:xl items-center lg:justify-between w-full lightgrey">
     <div class="flex items-center bg-[#D9D9D9] p-3 pr-7">
         <img src="assets/img/ranking 3.svg" alt="" class="mr-4">
@@ -173,18 +173,18 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="school" class="form-label block">NAME OF THE SCHOOL/PLATFORM</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="school" placeholder="" required>
+                    <label for="schoolName" class="form-label block">NAME OF THE SCHOOL/PLATFORM</label>
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="schoolName" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
-                    <label for="type_of_learning" class="form-label block">TYPE OF LEARNING OFFERED</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="type_of_learning" placeholder="" required>
+                    <label for="category" class="form-label block">TYPE OF LEARNING OFFERED</label>
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="category" placeholder="" required>
                 </div>
 
                 <div class="mb-4">
-                    <label for="contact_info" class="form-label block">WEBSITE OR CONTACT INFORMATION</label>
-                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="contact_info" placeholder="" required>
+                    <label for="url" class="form-label block">WEBSITE OR CONTACT INFORMATION</label>
+                    <input type="text" class="form-control w-full p-2 rounded placeholder-gray-500 gray" id="url" placeholder="" required>
                 </div>
                 <div class="mb-4">
                     <label for="description" class="form-label block">DESCRIPTION OF THE PLATFORM</label>
@@ -201,73 +201,7 @@
     </div>
 </main>
 
-<script>
-  document.getElementById('submissionForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Get values from form fields
-    const name = document.getElementById('name').value;
-    const school = document.getElementById('school').value;
-    const type_of_learning = document.getElementById('type_of_learning').value;
-    const contact_info = document.getElementById('contact_info').value;
-    const description = document.getElementById('description').value;
-
-    // Create new submission object
-    const formData = {
-      id: Date.now().toString(), // Unique ID
-      name: name,
-      school: school,
-      type_of_learning: type_of_learning,
-      contact_info: contact_info,
-      description: description,
-      submission_type: "EDUCATION PLATFORM SUBMISSION FORM",
-      createdAt: new Date().toISOString()
-    };
-
-    const API_URL = "https://api.jsonbin.io/v3/b/67ef5a5d8561e97a50f86619"; // JSONBin URL
-    const MASTER_KEY = "$2a$10$yfMeiHp0tq9bZ8WN1aFiI.ptHuBV22LmQrgmzxR/N0WN0cFyQTwcK"; // JSONBin Master Key
-
-    // Step 1: GET existing data
-    axios.get(API_URL, {
-      headers: { "X-Master-Key": MASTER_KEY }
-    })
-    .then(response => {
-      let submissions = response.data.record;
-
-      // Ensure it's an array
-      if (!Array.isArray(submissions)) {
-        submissions = [];
-      }
-
-      submissions.push(formData); // Add new submission
-
-      // Step 2: PUT updated data back to JSONBin
-      return axios.put(API_URL, submissions, {
-        headers: {
-          "Content-Type": "application/json",
-          "X-Master-Key": MASTER_KEY
-        }
-      });
-    })
-    .then(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Success!',
-        text: 'Your Submission has been Submitted Successfully!',
-      });
-
-      document.getElementById('submissionForm').reset(); // Clear form
-    })
-    .catch(error => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'There was an Issue while Submitting your Submission!',
-      });
-      console.error("Error details:", error.response ? error.response.data : error.message);
-    });
-  });
-</script>
+<script src="../submitPage/assets/js/scripts.js"></script>
 
         <footer class="flex justify-center p-5 darkgrey">
             <h3 class="text-gray-600 text-sm">

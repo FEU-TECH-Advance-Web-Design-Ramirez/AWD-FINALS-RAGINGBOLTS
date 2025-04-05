@@ -24,17 +24,17 @@ const User = mongoose.model('User', new mongoose.Schema({
   password: String, 
 }));
 
-// API route to fetch all users
+
 app.get('/api/users', async (req, res) => {
   try {
-    const users = await User.find();  // Fetch all users
-    res.json(users);  // Send the users as JSON response
+    const users = await User.find();  
+    res.json(users);  
   } catch (err) {
     res.status(500).json({ message: 'Error fetching users', error: err.message });
   }
 });
 
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
